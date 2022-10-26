@@ -24,7 +24,7 @@ class TestCoffeeShop(unittest.TestCase):
         self.coffee_shop.check_age(customer)
         self.assertEqual(True, self.coffee_shop.check_age(customer))
 
-    def test_sell_if_customer_old_enough2(self):
+    def test_sell_if_customer_exactly_old_enough(self):
         customer = Customer("Sophie", 50, 16)
         self.coffee_shop.check_age(customer)
         self.assertEqual(True, self.coffee_shop.check_age(customer))
@@ -39,7 +39,7 @@ class TestCoffeeShop(unittest.TestCase):
         self.coffee_shop.check_energy(customer)
         self.assertEqual("Drink served", self.coffee_shop.check_energy(customer))
 
-    def test_customer_energy_level_high(self):
+    def test_customer_energy_level_too_high(self):
         customer = Customer("Sam", 50, 14)
         drink = Drink("Coffee Bomb", 3.00, 16)
         customer.increase_energy(drink)

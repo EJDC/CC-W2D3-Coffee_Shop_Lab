@@ -1,6 +1,5 @@
 from src.coffee_shop import CoffeeShop
 
-
 class Customer:
     def __init__(self, name, wallet, age):
         self.name = name
@@ -18,3 +17,8 @@ class Customer:
 
     def increase_energy(self, drink):
         self.energy += drink.caffeine_level
+
+    def decrease_energy(self, food):
+        self.energy -= food.rejuvenation_level
+        if self.energy <= 0:
+            self.energy = 0
