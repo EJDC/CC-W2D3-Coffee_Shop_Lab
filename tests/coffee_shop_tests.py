@@ -2,9 +2,11 @@ import unittest
 from src.coffee_shop import CoffeeShop
 from src.customer import Customer
 from src.drink import Drink
+
 class TestCoffeeShop(unittest.TestCase): 
     
     def setUp(self):
+        #  Coffee Shop = Name, Price
         self.coffee_shop = CoffeeShop("Caffin8", 500)
     
     def test_coffee_shop_has_name(self):
@@ -18,30 +20,28 @@ class TestCoffeeShop(unittest.TestCase):
         self.assertEqual(502, self.coffee_shop.till)
 
     def test_sell_if_customer_old_enough(self):
-        customer=Customer("Charlie", 50, 25)
+        customer = Customer("Charlie", 50, 25)
         self.coffee_shop.check_age(customer)
         self.assertEqual(True, self.coffee_shop.check_age(customer))
 
     def test_sell_if_customer_old_enough2(self):
-        customer=Customer("Sophie", 50, 16)
+        customer = Customer("Sophie", 50, 16)
         self.coffee_shop.check_age(customer)
         self.assertEqual(True, self.coffee_shop.check_age(customer))
-        #self.customer.customer_check_age(customer)
 
     def test_sell_if_customer_not_old_enough(self):
-        customer=Customer("Sam", 50, 14)
+        customer = Customer("Sam", 50, 14)
         self.coffee_shop.check_age(customer)
         self.assertEqual(False, self.coffee_shop.check_age(customer))
     
     def test_customer_energy_level_ok(self):
-        customer=Customer("Sam", 50, 14)
+        customer = Customer("Sam", 50, 14)
         self.coffee_shop.check_energy(customer)
-
         self.assertEqual("Drink served", self.coffee_shop.check_energy(customer))
 
     def test_customer_energy_level_high(self):
-        customer=Customer("Sam", 50, 14)
-        drink= Drink("Coffee Bomb", 3.00, 16)
+        customer = Customer("Sam", 50, 14)
+        drink = Drink("Coffee Bomb", 3.00, 16)
         customer.increase_energy(drink)
         self.coffee_shop.check_energy(customer)
         self.assertEqual("Service refused", self.coffee_shop.check_energy(customer))

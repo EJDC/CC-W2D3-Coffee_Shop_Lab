@@ -5,7 +5,7 @@ class CoffeeShop:
         self.drinks = []
 
     def increase_till(self, amount):
-        self.till+= amount
+        self.till += amount
 
     def check_age(self, customer):
         if customer.age >= 16:

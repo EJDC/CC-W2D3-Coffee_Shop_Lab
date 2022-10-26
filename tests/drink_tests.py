@@ -2,7 +2,9 @@ import unittest
 from src.drink import Drink
 
 class TestDrink(unittest.TestCase):
+
     def setUp(self):
+        #  Drink = Name, Price, Caffeine Level
         self.drink = Drink("Mocha", 2.50, 3)
 
     def test_drink_has_name(self):
